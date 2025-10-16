@@ -22,7 +22,7 @@ with open("fuel_status.txt", "w") as f:
     f.write(next_fuel_status)
 
 # Step 3: Define inventory with current fuel status
-inventory = f"oxygen: full, water: full, food: low, fuel: {fuel_status_value}, tools: available, medkits: low, spare parts: available"
+inventory = f"oxygen: full, water: full, food: low, fuel: {fuel_status_value}, tools: available, medkits: low, spare parts: low"
 
 print("\nCurrent Inventory:")
 print(inventory)
@@ -72,3 +72,20 @@ print(updated_inventory)
 update_request = input("Enter the resource you want to update (e.g, food, water, fuel): ")
 new_status = input("Enter the new status (e.g., full, medium, low): ")
 
+if update_request == "oxygen":
+    newInventory = updated_inventory.replace("oxygen: full", "oxygen: " + new_status)
+elif update_request == "water":
+    newInventory = updated_inventory.replace("water: full", "water: " + new_status)
+elif update_request == "food":
+    newInventory = updated_inventory.replace("food: full", "food: " + new_status)
+elif update_request == "fuel":
+    newInventory = updated_inventory.replace("fuel: {fuel_status_value}", "fuel: " + new_status)
+elif update_request == "tools":
+    newInventory = updated_inventory.replace("tools: available", "tools: " + new_status)
+elif update_request == "medkits":
+    newInventory = updated_inventory.replace("medkits: low", "medkits: " + new_status)
+elif update_request == "spare parts":
+    newInventory = updated_inventory.replace("spare parts: low", "spare parts: " + new_status)
+
+print("Updated inventory after user input: ", newInventory)
+print("Inventory Report: \nOxygen: ", newInventory[newInventory.find("oxygen"):newInventory.find("water")-2], "\nWater: ", newInventory[newInventory.find("water"):newInventory.find("food")-2], "\nFood: ", newInventory[newInventory.find("food"):newInventory.find("fuel")-2])
