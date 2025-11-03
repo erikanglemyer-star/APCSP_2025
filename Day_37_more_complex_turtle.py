@@ -1,0 +1,50 @@
+import turtle
+screen = turtle.Screen()
+screen.bgcolor("lightpink")
+t = turtle.Turtle()
+t.pensize(3)
+t.color("black")
+
+t.penup()
+t.goto(-200, -50)
+t.pendown()
+t.forward(400)
+t.left(90)
+t.forward(20)
+t.left(90)
+t.forward(400)
+t.left(90)
+t.forward(20)
+t.penup()
+
+t.goto(-150, -70)
+t.pendown()
+t.circle(20)
+
+t.penup()
+t.goto(150, -70)
+t.pendown()
+t.circle(20)
+
+t.penup()
+t.goto(-150, -50)
+t.pendown()
+t.goto(-150, -90)
+
+t.penup()
+t.goto(150, -50)
+t.pendown()
+t.goto(150, -90)
+
+t.penup()
+t.goto(-175, -45)
+t.pendown()
+t.goto(-175, -30)
+
+t.penup()
+t.goto(175, -45)
+t.pendown()
+t.goto(175, -30)
+
+t.hideturtle()
+screen.exitonclick()
