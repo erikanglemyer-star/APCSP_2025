@@ -1,14 +1,14 @@
-from PIL import Image
+from PIL import Image #Uses pillow to import an image
 
-def convert_to_gif(image_path):
+def convert_to_gif(image_path): #defines a function to convert an image to a gif
     img = Image.open(image_path)
     gif_path = "converted_image.gif"
     img.save(gif_path, format="GIF")
     return gif_path
 
-image_path = input("Enter the path to an image (JPG, PJEP, PNG, or GIF) for the background: ").strip()
-if image_path.lower().endswith(('.jpg', '.jpeg', '.png')):
-    gif_path = convert_to_gif(image_path)
+image_path = input("Enter the path to an image (JPG, PJEP, PNG, or GIF) for the background: ").strip() #prompts user to provide their image
+if image_path.lower().endswith(('.jpg', '.jpeg', '.png')): 
+    gif_path = convert_to_gif(image_path) #If it is a JPG, JPEG, or PNG, converts it to a GIF
 else:
     gif_path = image_path # Assume it's already a GIF if not a JPG, JPEG, or PNG
 
@@ -17,7 +17,7 @@ import random as celebrations # Renaming random library for thematc purposes
 
 screen = turtle.Screen()
 screen.title("Fall Celebrations")
-screen.bgcolor('black')
+screen.bgcolor('black') #Sets up screen
 
 # Set background GIF if a path is provided
 if gif_path:
@@ -96,7 +96,7 @@ holiday_functions = {
     "Mid-Autumn Festival": mid_autumn_festival,
     "Yom Kippur": yom_kippur,
     "Rosh Hashanah": rosh_hashanah,
-    "Halloween": halloween
+    "Halloween": halloween #Bonus Task: Adding a Fall Holiday Function
 }
 
 def display_activities(holiday_name):
@@ -106,9 +106,9 @@ def display_activities(holiday_name):
         for activity in activities:
             print("- " + activity)
     else:
-        print(holiday_name + " is not in the list of holidays.")
+        print(holiday_name + " is not in the list of holidays.") #If the holiday is not in the list, tell the user that nothing could be found
 
-print("Do you celebrate any of the following holidays?")
+print("Do you celebrate any of the following holidays?") #Allows user to enter a holiday they celebrate
 for holiday in holiday_functions.keys():
     print("- " + holiday)
 user_holiday = input("\nIf you celebrate one of these holidays, please enter its name, or press Enter to skip: ").strip()
