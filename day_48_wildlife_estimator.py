@@ -34,6 +34,8 @@ print("\nBald eagle estimated population in January:", bald_eagle_jan)
 print("Bald eagle estimated population in July:", bald_eagle_jul)
 print("Snow leopard estimated population in January:", snow_leopard_jan)
 print("Snow leopard estimated population in July:", snow_leopard_jul)
+print("Amur leopard estimated population in January:", amur_leopard_jan)
+print("Amur leopard estimated population in July:", amur_leopard_jul)
 
 # Calculate and display the change in Bald Eagle population from January to July
 bald_eagle_change = bald_eagle_jul - bald_eagle_jan # Calculate the difference
@@ -47,28 +49,43 @@ else:
 # Calculate and display the change in snow leopard population from January to July
 snow_leopard_change = snow_leopard_jul - snow_leopard_jan # Calculate the difference
 if snow_leopard_change > 0:
-    print("\Snow leopard population increased by:", snow_leopard_change)
+    print("\nSnow leopard population increased by:", snow_leopard_change)
 elif snow_leopard_change < 0:
-    print("\Snow leopard population decreased by:", absolute_difference(snow_leopard_change)) # Negative change
+    print("\nSnow leopard population decreased by:", absolute_difference(snow_leopard_change)) # Negative change
 else:
-    print("\Snow leopard population remained the same.") # No change
+    print("\nSnow leopard population remained the same.") # No change
+
+# Calculate and display the change in amur leopard population from January to July
+amur_leopard_change = amur_leopard_jul - amur_leopard_jan # Calculate the difference
+if amur_leopard_change > 0:
+    print("\nAmur leopard population increased by:", amur_leopard_change)
+elif amur_leopard_change < 0:
+    print("\nAmur leopard population decreased by:", absolute_difference(amur_leopard_change)) # Negative change
+else:
+    print("\nAmur leopard population remained the same.") # No change
 
 # Calculate and display the conservative estimate for both populations (rounded down)
 bald_eagle_conservative_jul = conservative_estimate(bald_eagle_jul)
 snow_leopard_conservative_jul = conservative_estimate(snow_leopard_jul)
+amur_leopard_conservative_jul = conservative_estimate(amur_leopard_jul)
 print("\nConservative July Population Estimate (using conservative_estimate):")
 print("Bald eagle:", bald_eagle_conservative_jul)
 print("Snow leopard:", snow_leopard_conservative_jul)
+print("Amur leopard:", amur_leopard_conservative_jul)
 
 # Calculate and display the liberal estimate for both populations (rounded up)
 bald_eagle_liberal_jul = liberal_estimate(bald_eagle_jul)
 snow_leopard_liberal_jul = liberal_estimate(snow_leopard_jul)
+amur_leopard_liberal_jul = liberal_estimate(amur_leopard_jul)
 print("\nLiberal July Population Estimate (using liberal_estimate):")
 print("Bald eagle:", bald_eagle_liberal_jul)
 print("Snow leopard:", snow_leopard_liberal_jul)
+print("Amur leopard:", amur_leopard_liberal_jul)
 
 # Simplify population estimates by rounding to the nearest integer (ignoring decimals)
 simple_bald_eagle_population = int(bald_eagle_jul)
 simple_snow_leopard_population = int(snow_leopard_jul)
+simple_amur_leopard_population = int(amur_leopard_jul)
 print("Simplified Bald Eagle Population for Reporting (using int):", simple_bald_eagle_population)
 print("Simplified Snow Leopard Population for Reporting (using int):", simple_snow_leopard_population)
+print("Simplified Snow Leopard Population for Reporting (using int):", simple_amur_leopard_population)
