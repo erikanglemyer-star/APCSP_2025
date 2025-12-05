@@ -17,8 +17,7 @@ for i in range(10): # Create 10 rows
 # Do a loop iterating through each word in the list
 # if it doesnt fit, redo with the same i. 
 for i in range(10):
-    taken = ("Yes")
-    while taken == ("Yes"):
+    while True:
         character = 0
         wordLength = len(wordsList[i]) # Rolls the first letter
         row = random.randint(0, 9) # Random row between 0 and 9
@@ -35,23 +34,25 @@ for i in range(10):
         for char in wordsList[i]:    # Places every letter in the word
             if direction == ("V"):
                 if grid[row][col + x] != " ":
-                    taken = ("Yes")
+                    taken = True
                     break
             else:
                 if grid[row + x][col] != " ":
-                    taken = ("Yes")
+                    taken = True
                     break
-        if taken != ("Yes"):
-            x = 0
-            for char in wordsList[i]:    # Places every letter in the word
-                if direction == ("V"):
-                    grid[row][col + x] = char
-                else:
-                    grid[row + x][col] = char
-                x += 1
+            x = x + 1
+        if taken:
+            continue
+
+        x = 0
+        for char in wordsList[i]:    # Places every letter in the word
+            if direction == ("V"):
+                grid[row][col + x] = char
+            else:
+                grid[row + x][col] = char
+            x += 1
+        break
 
 for i in range(10):
     print(grid[i], "\n")
         
-
-
