@@ -6,8 +6,21 @@ letters = string.ascii_lowercase
 subject = input("Please enter a subject: ")
 
 for i in range(10): # Loops 10 times
-    wordsList.append(input("Please enter a word related to your subject: ").lower()) # Adds the users word to the list
-
+    while True:
+        valid = True
+        wordsList.append(input("Please enter a word related to your subject: ").lower()) # Adds the users word to the list
+        for char in wordsList[i]:
+            if char not in string.ascii_letters:
+                print("Please enter only letters in your words.")
+                valid = False
+                break
+        if len(wordsList[i]) >= 10:
+            print("One or more of your words have too many characters.")
+            valid = False
+        if valid == True:
+            break
+        else:
+            wordsList.pop()
 
 print("Here are your words: ", wordsList)
 

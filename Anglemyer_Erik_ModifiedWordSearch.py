@@ -20,8 +20,6 @@ for i in range(gridSize): # Loops 10 times
             if char not in string.ascii_letters:
                 print("Please enter only letters in your words.")
                 valid = False
-                continue
-            else:
                 break
         if len(wordsList[i]) - 1 >= gridSize:
             print("One or more of your words have too many characters.")
