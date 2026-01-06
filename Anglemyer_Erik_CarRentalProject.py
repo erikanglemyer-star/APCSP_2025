@@ -40,3 +40,47 @@ while True:
             print("Please enter a higher ending mileage reading than starting.")
         else:
             break
+    
+    miles = endMile - startMile
+    
+    print("Customer Classification code: ", code)
+
+    if code == "B":
+        baseCharge = 40 # per day
+        mileageCharge = 0.25 # per mile
+        total = daysRented * baseCharge + miles * mileageCharge
+        print("Rental period (days):", daysRented)
+        print("Odometer reading at start:", startMile)
+        print("Odometer reading at end:", endMile)
+        print("Number of Miles Driven:", miles)
+        print("Base Charge: $" + str(baseCharge) + "/day x " + str(daysRented) + " days = $" + str(baseCharge * daysRented))
+        print("Mileage Charge: $" + str(mileageCharge) + "/mile x " + str(miles) + " miles = $" + str(mileageCharge * miles))
+        print("Total Amount Due: $" + str(total))
+
+    
+    if code == "D":
+        baseCharge = 60 # per day
+        mileageCharge = 0.25 # Free for up to 100 miles per day, then per mile
+        freeMiles = 100 # per day
+        paidMiles = miles - daysRented * freeMiles
+        total = paidMiles * mileageCharge + baseCharge * daysRented
+        print("Rental period (days):", daysRented)
+        print("Odometer reading at start:", startMile)
+        print("Odometer reading at end:", endMile)
+        print("Number of Miles Driven:", miles)
+        print("Base Charge: $" + str(baseCharge) + "/day x " + str(daysRented) + " days = $" + str(baseCharge * daysRented))
+        print("Mileage Charge: First " + str(daysRented * freeMiles) + " miles free (100 miles/day), Extra " + str(paidMiles) + " miles x $" + str(mileageCharge) + " = $" + str(paidMiles * mileageCharge))
+        print("Total Amount Due: $" + str(total))
+
+    if code == "W":
+        baseCharge = 190 # per week
+        if miles >= 900 and miles <= 1500:
+            mileageCharge = 0 
+            flatMileCharge = 100
+        elif miles > 1500:
+            flatMileCharge = 200
+            mileageCharge = 0.25 # For every mile past 1500
+        print("Rental period (weeks): ", weeksRented)
+        print("Odometer reading at start: ", startMile)
+        print("Odometer reading at end: ", endMile)
+        print("Number of Miles Driven: ", miles)
