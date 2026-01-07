@@ -110,13 +110,13 @@ while True: # Loop for the Car Rental Calculator
             weekWeeks = "week"
         else:
             weekWeeks = "weeks"
-        total = (miles - maxMiles) * mileageCharge + weeksRented * baseCharge + flatMileCharge * weeksRented
+        total = (miles - maxMiles) * mileageCharge + weeksRented * baseCharge + flatMileCharge
         print("Rental period (weeks):", weeksRented)
         print("Odometer reading at start:", startMile)
         print("Odometer reading at end:", endMile)
         print("Number of Miles Driven:", miles)
         print("Base Charge: $" + str(baseCharge) + "/week x " + str(weeksRented) + " " + weekWeeks + " = $" + str(weeksRented * baseCharge))
-        print("Mileage Charge: First " + str(baseMilesFree) + " miles free, Next " + str(600 * weeksRented) + " miles: $100.00. Your charge = " + str(flatMileCharge * weeksRented))
+        print("Mileage Charge: First " + str(baseMilesFree) + " miles free, Next " + str(600 * weeksRented) + " miles: $100.00. Your charge = " + str(flatMileCharge))
         if miles > maxMiles:
             print("Extra " + str(miles-maxMiles) + " miles ($0.25 per mile): " + str((miles - maxMiles) * mileageCharge))
         print("Total Amount Due: $" + str(total))
