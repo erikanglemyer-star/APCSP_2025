@@ -73,9 +73,9 @@ while True: # Loop for the Car Rental Calculator
         print("Odometer reading at start:", startMile)
         print("Odometer reading at end:", endMile)
         print("Number of Miles Driven:", miles)
-        print("Base Charge: $" + str(baseCharge) + "/day x " + str(daysRented) + " " + dayDays + " = $" + str(baseCharge * daysRented))
-        print("Mileage Charge: $" + str(mileageCharge) + "/mile x " + str(miles) + " miles = $" + str(mileageCharge * miles))
-        print("Total Amount Due: $" + str(total))
+        print("Base Charge: $" + str("{:.2f}".format(baseCharge)) + "/day x " + str(daysRented) + " " + dayDays + " = $" + str("{:.2f}".format(baseCharge * daysRented)))
+        print("Mileage Charge: $" + str("{:.2f}".format(mileageCharge)) + "/mile x " + str(miles) + " miles = $" + str("{:.2f}".format(mileageCharge * miles)))
+        print("Total Amount Due: $" + str("{:.2f}".format(total)))
 
     
     if code == "D": # Calculates and prints receipt for D classification
@@ -90,9 +90,9 @@ while True: # Loop for the Car Rental Calculator
         print("Odometer reading at start:", startMile)
         print("Odometer reading at end:", endMile)
         print("Number of Miles Driven:", miles)
-        print("Base Charge: $" + str(baseCharge) + "/day x " + str(daysRented) + " " + dayDays + " = $" + str(baseCharge * daysRented))
-        print("Mileage Charge: First " + str(daysRented * freeMiles) + " miles free (100 miles/day), Extra " + str(paidMiles) + " miles x $" + str(mileageCharge) + " = $" + str(paidMiles * mileageCharge))
-        print("Total Amount Due: $" + str(total))
+        print("Base Charge: $" + str("{:.2f}".format(baseCharge)) + "/day x " + str("{:.2f}".format(daysRented)) + " " + dayDays + " = $" + str("{:.2f}".format(baseCharge * daysRented)))
+        print("Mileage Charge: First " + str(daysRented * freeMiles) + " miles free (100 miles/day), Extra " + str(paidMiles) + " miles x $" + str("{:.2f}".format(mileageCharge)) + " = $" + str("{:.2f}".format(paidMiles * mileageCharge)))
+        print("Total Amount Due: $" + str("{:.2f}".format(total)))
 
     if code == "W": # Calculates and prints receipt for W classification
         baseCharge = 190 # per week
@@ -115,8 +115,8 @@ while True: # Loop for the Car Rental Calculator
         print("Odometer reading at start:", startMile)
         print("Odometer reading at end:", endMile)
         print("Number of Miles Driven:", miles)
-        print("Base Charge: $" + str(baseCharge) + "/week x " + str(weeksRented) + " " + weekWeeks + " = $" + str(weeksRented * baseCharge))
-        print("Mileage Charge: First " + str(baseMilesFree) + " miles free, Next " + str(600 * weeksRented) + " miles: $100.00. Your charge = " + str(flatMileCharge * weeksRented))
+        print("Base Charge: $" + str("{:.2f}".format(baseCharge)) + "/week x " + str("{:.2f}".format(weeksRented)) + " " + weekWeeks + " = $" + str("{:.2f}".format(weeksRented * baseCharge)))
+        print("Mileage Charge: First " + str(baseMilesFree) + " miles free, Next " + str(600 * weeksRented) + " miles: $100.00. Your charge = " + str("{:.2f}".format(flatMileCharge * weeksRented)))
         if miles > maxMiles:
-            print("Extra " + str(miles-maxMiles) + " miles ($0.25 per mile): " + str((miles - maxMiles) * mileageCharge))
-        print("Total Amount Due: $" + str(total))
+            print("Extra " + str(miles-maxMiles) + " miles ($0.25 per mile): $" + str("{:.2f}".format((miles - maxMiles) * mileageCharge)))
+        print("Total Amount Due: $" + str("{:.2f}".format(total)))
