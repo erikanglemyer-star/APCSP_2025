@@ -1,10 +1,17 @@
 from PIL import Image
 import requests
 from io import BytesIO
+import time
 
 # Load an image from a URL
 def load_image_from_url(url):
-    response = requests.get(url)
+    print(f"Fetching URL: {url}")
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    }
+    response = requests.get(url, headers=headers)
+    print(f"Response status: {response.status_code}")
+    print(f"Content type: {response.headers.get('content-type')}")
     img = Image.open(BytesIO(response.content))
     return img
 
@@ -30,31 +37,36 @@ def modify_image(img):
     return img
 
 def get_resolution_url(base_url, resolution):
-    resolution_mapping = {
-        "320x213": "320px-Cute_dog.jpg",
-        "640x427": "640px-Cute_dog.jpg",
-        "800x533": "800px-Cute_dog.jpg",
-        "1024x683": "1024px-Cute_dog.jpg",
-        "1280x853": "1280px-Cute_dog.jpg",
-        "2560x1706": "2560px-Cute_dog.jpg",
-        "3176x2117": "Cute_dog.jpg" # Original resolution
-    }
-    return base_url + resolution_mapping[resolution]
+    # Split resolution into width and height
+    width, height = resolution.split('x')
+    return f"https://picsum.photos/{width}/{height}"
 
 # Main function
 def main():
-    base_url = "https://www.shutterstock.com/image-photo/cute-french-bulldog-puppy-eight-260nw-2322351863.jpg"
+    base_url = ""  # Not needed anymore, but keeping for compatibility
     print("Available resolutions: 320x213, 640x427, 800x533, 1024x683, 1280x853, 2560x1706, 3176x2117")
     resolution = input("Enter the desired resolution: ")
+    
     try:
         image_url = get_resolution_url(base_url, resolution)
         print(f"Loading image at resolution {resolution}...")
+        
+        # Start timing
+        start_time = time.time()
+        
         original_image = load_image_from_url(image_url)
         modified_image = modify_image(original_image)
+        
+        # End timing
+        end_time = time.time()
+        processing_time = end_time - start_time
+        
         # Show and save the image
         modified_image.show()
         modified_image.save(f"modified_image_{resolution}.png")
         print(f"Modified image saved as 'modified_image_{resolution}.png'")
+        print(f"Processing time: {processing_time:.4f} seconds")  # Shows 4 decimal places
+        
     except Exception as e:
         print(f"Error: {e}")
 
