@@ -22,6 +22,7 @@ screen.bgcolor('black') #Sets up screen
 # Set background GIF if a path is provided
 if gif_path:
     try:
+        print(gif_path)
         screen.addshape(gif_path) # Register the GIF shape
         background_turtle = turtle.Turtle()
         background_turtle.shape(gif_path)
