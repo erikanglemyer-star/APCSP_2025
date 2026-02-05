@@ -28,7 +28,7 @@ def createRoute():
     routeArrow.goto(0, 0)
 
     terminator = turtle.Turtle()
-    terminator.speed(0)
+    terminator.speed(1)
     terminator.penup()
     terminator.color("blue")
     terminator.pensize(3)
@@ -36,10 +36,10 @@ def createRoute():
     # Draw arrow from start to destination
     start_x, start_y = venue_coords[start.lower()]
     dest_x, dest_y = venue_coords[destination.lower()]
-    
+    terminator.hideturtle()
     # Move to starting position
     terminator.goto(start_x, start_y)
-    
+    terminator.showturtle()
     # Point toward destination
     terminator.setheading(terminator.towards(dest_x, dest_y))
     
@@ -163,3 +163,5 @@ travelTimeMinutes = round(travelTime - travelTimeHours * 60)
 print("Your route is estimated to take " + str(travelTimeHours) + " hours and " + str(travelTimeMinutes) + " minutes.")
 
 createRoute()
+
+print("Thank you for using the 2026 Olympics Travel Planner. Enjoy your trip!")
