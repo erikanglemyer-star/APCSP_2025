@@ -26,21 +26,29 @@ def createRoute():
     routeArrow.shape(gifPath)
     routeArrow.penup()
     routeArrow.goto(0, 0)
+
+    terminator = turtle.Turtle()
+    terminator.speed(0)
+    terminator.penup()
+    terminator.color("blue")
+    terminator.pensize(3)
+
+    # Draw arrow from start to destination
+    start_x, start_y = venue_coords[start.lower()]
+    dest_x, dest_y = venue_coords[destination.lower()]
     
-    # Create a new turtle for drawing circles
-    marker = turtle.Turtle()
-    marker.speed(0)  # Fastest drawing
-    marker.penup()
+    # Move to starting position
+    terminator.goto(start_x, start_y)
     
-    # Draw circles at each venue
-    for venue_name, (x, y) in venue_coords.items():
-        marker.goto(x, y)
-        marker.pendown()
-        marker.circle(10)
-        marker.penup()
+    # Point toward destination
+    terminator.setheading(terminator.towards(dest_x, dest_y))
     
-    marker.hideturtle()  # Hide the marker turtle when done
+    # Draw the arrow
+    terminator.pendown()
+    terminator.goto(dest_x, dest_y)
     
+    terminator.hideturtle()
+
     screen.exitonclick()
 
 # All distances in km
