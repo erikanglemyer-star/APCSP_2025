@@ -5,6 +5,7 @@ import turtle
 
 gifPath = "/Users/erikanglemyer/Downloads/ezgif-MedalQuest.gif"
 
+# Dictionary with the venues and their coordinates on the map image
 venue_coords = {
     "milan": (-224, -90),             
     "valtellina": (6, 163),      
@@ -12,15 +13,15 @@ venue_coords = {
     "cortina d'ampezzo": (322, 187)    
 }
 
+# Function to create a turtle 
 def createRoute():
     screen = turtle.Screen()
     screen.setup(width=800, height=600)
     screen.bgcolor("black")
 
-    # Add the shape first
     screen.addshape(gifPath)
 
-    # Then create the turtle and set its shape
+    # Create the turtle
     routeArrow = turtle.Turtle()
     routeArrow.shape(gifPath)
     routeArrow.penup()
@@ -32,7 +33,7 @@ def createRoute():
     terminator.color("blue")
     terminator.pensize(3)
 
-    # Draw arrow from start to destination
+    # Draw from start to destination
     start_x, start_y = venue_coords[start.lower()]
     dest_x, dest_y = venue_coords[destination.lower()]
     terminator.hideturtle()
@@ -50,7 +51,7 @@ def createRoute():
 
     screen.exitonclick()
 
-# All distances in km
+# All distances between the cities in km
 DIST_MILAN_VALTELLINA = 203
 DIST_MILAN_CORTINA = 411
 DIST_MILAN_VAL = 293
@@ -79,6 +80,7 @@ def checkLocation(venue):
         else:
             venue = input("Invalid venue entered, please try again. (Milan, Valtellina, Cortina d'Ampezzo, Val di Fiemme): ")
 
+# Checks to make sure that the inputted weather is valid
 def checkWeather(condition):
     condition = str(condition)
     condition = condition.lower()
@@ -88,6 +90,7 @@ def checkWeather(condition):
         else:
             condition = input("Invalid conditions entered, please try again (snowy, icy, wet, none): ")
 
+# Checks to ensure that inputted transport is valid
 def checkTransport(vehicle):
     vehicle = str(vehicle).lower()
     while True:
@@ -163,4 +166,5 @@ print("Your route is estimated to take " + str(travelTimeHours) + " hours and " 
 
 createRoute()
 
+# Thank the user
 print("Thank you for using the 2026 Olympics Travel Planner. Enjoy your trip!")
