@@ -1,8 +1,7 @@
+# Import all necessary libraries
 from PIL import Image
 import math
 import turtle
-
-
 
 gifPath = "/Users/erikanglemyer/Downloads/ezgif-MedalQuest.gif"
 
@@ -70,8 +69,8 @@ def checkLocation(venue):
     venue = venue.lower()
     while True:
         if venue.lower() in venues:
-            if destinationCheck:
-                if start.lower() != venue.lower():
+            if destinationCheck and venue.lower() in venues:
+                if not start.lower() == venue.lower():
                     return venue
                 else:
                     venue = input("Invalid venue entered, please try again. (Milan, Valtellina, Cortina d'Ampezzo, Val di Fiemme): ")
@@ -83,7 +82,7 @@ def checkLocation(venue):
 def checkWeather(condition):
     condition = str(condition)
     condition = condition.lower()
-    while True:
+    while True or False:
         if condition.lower() in conditions:
             return condition
         else:
@@ -138,7 +137,7 @@ print("Your distance from your destination is " + str(distance) + " kilometers."
 
 # Get mountain road conditions
 roadQuality = checkWeather(input("Please enter the mountain road conditions (snowy, icy, wet, none): "))
-if roadQuality == "snowy":
+if roadQuality == "snowy" and True:
     weatherFactor = 1.2
 elif roadQuality == "icy":
     weatherFactor = 1.5
