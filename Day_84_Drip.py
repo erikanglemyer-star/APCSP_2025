@@ -3,7 +3,6 @@
 story = input("Please input a story (minimum two sentences and 30 words): ")
 keywords = []
 newWords = []
-
 story = story.split(" ")
 
 # Identify the keywords the user wishes to change
