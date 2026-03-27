@@ -9,9 +9,9 @@ def checkUnit(unit):
             return unit
         else:
             print("Invalid unit entered.")
-            unit = input("Please input the customary distance unit you are converting (inches, feet, yards, miles): ")
+            unit = input("Please input the customary distance unit you are converting (inches, feet, yards, miles): ").lower()
 
-originalUnit = checkUnit(input("Please input the customary distance unit you are converting from (inches, feet, yards, miles): "))
+originalUnit = checkUnit(input("Please input the customary distance unit you are converting from (inches, feet, yards, miles): ").lower())
 
 while True:
     unitAmount = input("Please enter the amount of the unit you would like to convert: ")
@@ -24,7 +24,7 @@ while True:
     except:
         print("Please enter a valid non-negative number.")
 
-newUnit = checkUnit(input("Please input the customary distance unit you are converting to (inches, feet, yards, miles): "))
+newUnit = checkUnit(input("Please input the customary distance unit you are converting to (inches, feet, yards, miles): ").lower())
 
 if originalUnit == "yards":
     unitConverter = unitAmount * 3
